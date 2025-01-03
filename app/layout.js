@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "./lib/AuthContext";
 import { FaHome, FaSignInAlt, FaUserPlus } from "react-icons/fa";
+import LogoutForm from "./components/LogoutForm";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,6 +45,7 @@ export default function RootLayout({ children }) {
               >
                 <FaUserPlus className="text-lg" /> Rejestracja
               </a>
+              <LogoutForm />
             </nav>
           </aside>
 
@@ -64,6 +66,12 @@ export default function RootLayout({ children }) {
                   className="px-4 py-2 bg-gray-700 rounded-md text-sm font-medium hover:bg-gray-600"
                 >
                   Rejestracja
+                </a>
+                <a
+                  href="/protected/user/signout"
+                  className="px-4 py-2 bg-gray-700 rounded-md text-sm font-medium hover:bg-gray-600"
+                >
+                  Wyloguj
                 </a>
               </div>
             </header>
