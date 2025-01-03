@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div className="flex min-h-screen">
-          {/* Pasek boczny */}
+
           <aside className="w-64 bg-gray-800 text-white flex flex-col items-center py-4">
             <nav className="space-y-4 w-full px-4">
               <a
@@ -50,8 +50,8 @@ export default function RootLayout({ children }) {
           {/* Główna zawartość */}
           <div className="flex-1 flex flex-col">
             {/* Górny pasek */}
-            <header className="bg-blue-600 text-white py-3 px-6 shadow-md flex justify-between items-center">
-              <h1 className="text-xl font-bold">Moja aplikacja</h1>
+            <header className="bg-pink-300 text-white py-3 px-6 shadow-md flex justify-between items-center">
+              <h1 className="text-xl font-bold">Quiz app</h1>
               <div className="space-x-4">
                 <a
                   href="/public/user/signin"
@@ -75,7 +75,7 @@ export default function RootLayout({ children }) {
 
             {/* Stopka */}
             <footer className="bg-gray-800 text-white py-4 text-center">
-              &copy; 2024 Moja aplikacja. Wszelkie prawa zastrzeżone.
+              &copy; 2024 Quiz App React - Justyna Malinowska
             </footer>
           </div>
         </div>
