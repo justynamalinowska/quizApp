@@ -12,7 +12,7 @@ export default function ProfilePage() {
 
   const user = auth.currentUser;
 
-  // Funkcja obsługująca aktualizację profilu
+  // Function to handle profile update
   const onSubmit = (e) => {
     e.preventDefault();
     updateProfile(user, {
@@ -33,21 +33,20 @@ export default function ProfilePage() {
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
       <h1 className="text-2xl font-bold mb-6">Edytuj Profil</h1>
       
-      {/* Alert błędu */}
+      {/* Error Alert */}
       {error && (
         <div className="mb-4 p-4 bg-red-100 text-red-800 rounded-lg">
-          <p>Błąd: {error}</p>
-        </div>
-      )}
-      
-      {/* Alert sukcesu */}
-      {success && (
-        <div className="mb-4 p-4 bg-green-100 text-green-800 rounded-lg">
-          <p>Profil zaktualizowany pomyślnie!</p>
+          {error}
         </div>
       )}
 
-      {/* Formularz */}
+      {/* Success Alert */}
+      {success && (
+        <div className="mb-4 p-4 bg-green-100 text-green-800 rounded-lg">
+          Profil zaktualizowany pomyślnie!
+        </div>
+      )}
+
       <form onSubmit={onSubmit}>
         <div className="mb-4">
           <label htmlFor="displayName" className="block text-sm font-medium text-gray-700">
@@ -87,6 +86,13 @@ export default function ProfilePage() {
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
           />
         </div>
+
+        {/* Conditionally render profile picture */}
+        {photoURL && (
+          <div className="mb-4">
+            <img src={photoURL} alt="Profile" className="w-32 h-32 rounded-full mx-auto" />
+          </div>
+        )}
 
         <button
           type="submit"

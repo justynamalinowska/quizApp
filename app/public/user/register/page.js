@@ -2,11 +2,11 @@
 
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, signOut } from "firebase/auth";
 import { useAuth } from "@/app/lib/AuthContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export default function RegisterForm() {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const router = useRouter();
   const auth = getAuth();
 
@@ -14,6 +14,15 @@ export default function RegisterForm() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [registerError, setRegisterError] = useState('');
+
+  useEffect(() => {
+    console.log("User state:", user);
+    console.log("Loading state:", loading);
+  }, [user, loading]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   if (user) {
     return null;
@@ -31,7 +40,7 @@ export default function RegisterForm() {
       await sendEmailVerification(auth.currentUser);
       console.log("Email verification sent!");
       await signOut(auth);
-      router.push('/public/user/signin'); // Po udanej rejestracji przekieruj na stronę logowania
+      router.push('/public/user/verify'); // Po udanej rejestracji przekieruj na stronę weryfikacji
     } catch (error) {
       setRegisterError(error.message);
       console.dir(error);
