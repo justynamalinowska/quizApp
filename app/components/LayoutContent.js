@@ -31,10 +31,11 @@ export default function LayoutContent({ children }) {
           )}
         </nav>
       </aside>
+
       <div className="flex-1 flex flex-col">
         <header className="bg-pink-500 text-white py-3 px-6 shadow-md flex justify-between items-center">
           <h1 className="text-xl font-bold">Quiz app</h1>
-          <div className="space-x-4">
+          <div className="space-x-4 hidden md:flex">
             <a href="/public/user/signin" className="px-4 py-2 bg-gray-700 text-white rounded-md text-sm font-medium hover:bg-gray-600">
               Logowanie
             </a>
@@ -46,9 +47,11 @@ export default function LayoutContent({ children }) {
             </a>
           </div>
         </header>
+
         <main className="flex-1 container mx-auto py-6 px-4">
           {children}
         </main>
+
         <footer className="bg-gray-800 text-white py-4 text-center">
           &copy; 2024 Quiz App React - Justyna Malinowska
         </footer>
