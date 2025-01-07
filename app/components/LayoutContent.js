@@ -22,6 +22,12 @@ export default function LayoutContent({ children }) {
           </a>
           {user && (
             <>
+              <a href="/protected/quiz/create" className="flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg hover:bg-gray-700">
+                <FaHome className="text-lg" /> Stwórz Quiz
+              </a>
+              <a href="/protected/quiz" className="flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg hover:bg-gray-700">
+              Przeglądaj Quizy
+              </a>
               <a href="/protected/user/profile" className="flex items-center gap-3 px-4 py-2 text-sm font-medium rounded-lg hover:bg-gray-700">
                 <img src={user.photoURL || '/default-profile.png'} alt="Profile" className="w-8 h-8 rounded-full" />
                 <span>{user.displayName || "User"}</span>
