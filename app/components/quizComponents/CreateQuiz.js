@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from "react";
-import { collection, addDoc } from "firebase/firestore"; // Firebase Firestore
-import { db } from "@/app/lib/firebase"; // Konfiguracja Firebase
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "@/app/lib/firebase"; 
 
 const CreateQuiz = () => {
   const [quizTitle, setQuizTitle] = useState("");
@@ -15,7 +15,6 @@ const CreateQuiz = () => {
     correct: [],
   });
 
-  // Dodanie pytania do quizu
   const addQuestion = () => {
     setQuestions([...questions, { ...currentQuestion, type: questionType }]);
     setCurrentQuestion({ title: "", content: "", options: [], correct: [] });
@@ -34,15 +33,14 @@ const CreateQuiz = () => {
         questions,
       });
       alert("Quiz zapisany pomyślnie!");
-      setQuizTitle(""); // Resetuj tytuł
-      setQuestions([]); // Resetuj pytania
+      setQuizTitle(""); 
+      setQuestions([]); 
     } catch (error) {
       console.error("Błąd podczas zapisywania quizu:", error);
       alert("Nie udało się zapisać quizu.");
     }
   };
 
-  // Funkcja aktualizowania wartości pola pytania
   const handleInputChange = (field, value) => {
     setCurrentQuestion((prev) => ({ ...prev, [field]: value }));
   };
@@ -75,7 +73,6 @@ const CreateQuiz = () => {
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
       <h1 className="text-2xl font-bold mb-6">Stwórz Quiz</h1>
       <div className="space-y-4">
-        {/* Tytuł quizu */}
         <label className="block">
           Tytuł quizu:
           <input
@@ -86,7 +83,6 @@ const CreateQuiz = () => {
           />
         </label>
 
-        {/* Typ pytania */}
         <label className="block">
           Typ pytania:
           <select
@@ -101,7 +97,6 @@ const CreateQuiz = () => {
           </select>
         </label>
 
-        {/* Tytuł pytania */}
         <label className="block">
           Tytuł pytania:
           <input
@@ -112,7 +107,6 @@ const CreateQuiz = () => {
           />
         </label>
 
-        {/* Treść pytania */}
         <label className="block">
           Treść pytania:
           <textarea
@@ -122,7 +116,6 @@ const CreateQuiz = () => {
           />
         </label>
 
-        {/* Opcje pytania */}
         {["single", "multiple"].includes(questionType) && (
           <div className="space-y-2">
             <h3>Opcje:</h3>
@@ -144,25 +137,23 @@ const CreateQuiz = () => {
             ))}
             <button
               onClick={addOption}
-              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              className="px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600"
             >
               Dodaj opcję
             </button>
           </div>
         )}
 
-        {/* Dodanie pytania */}
         <button
           onClick={addQuestion}
-          className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+          className="px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600"
         >
           Dodaj pytanie
         </button>
 
-        {/* Zapisz quiz */}
         <button
           onClick={saveQuiz}
-          className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600 mt-4"
+          className="px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 mt-4"
         >
           Zapisz Quiz
         </button>

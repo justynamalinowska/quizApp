@@ -40,7 +40,7 @@ export default function RegisterForm() {
       await sendEmailVerification(auth.currentUser);
       console.log("Email verification sent!");
       await signOut(auth);
-      router.push('/public/user/verify'); // Po udanej rejestracji przekieruj na stronę weryfikacji
+      router.push('/public/user/verify');
     } catch (error) {
       setRegisterError(error.message);
       console.dir(error);
@@ -96,7 +96,7 @@ export default function RegisterForm() {
         </div>
         <button
           type="submit"
-          className="inline-flex items-center justify-center gap-2 rounded-md border border-transparent bg-pink-300 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+          className="inline-flex items-center justify-center gap-2 rounded-md border border-transparent bg-pink-300 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-pink-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
         >
           Zarejestruj się
         </button>

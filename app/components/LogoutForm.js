@@ -18,7 +18,7 @@ export default function LogoutForm() {
     <form onSubmit={onSubmit} className="w-full">
       <button
         type="submit"
-        className="w-full px-4 py-2 text-sm font-medium text-white bg-pink-300 rounded-lg hover:bg-red-700"
+        className="w-full px-4 py-2 text-sm font-medium text-white bg-pink-300 rounded-lg hover:bg-pink-500"
       >
         Wyloguj
       </button>
